@@ -76,6 +76,15 @@ Use explicit allocators.  Manage all resources and dependencies in
 Everything internal is pure C code with no dependencies on the outside
 world.
 
+### Embed-able ###
+
+A simple library.  Bonus points if it can be kept in a single header.
+
+Provide a simple REPL-like application version for testing and
+experimentation.
+
+Be minimal and inspired by sqlite.
+
 ## Requirements ##
 
 ### Definitions ###
@@ -89,12 +98,6 @@ in the stream it belongs to.
 
 A partially ordered collection of events with a unique identifier.
 
-### Constraints ###
-
-Events must maintain a partial order within a stream.
-
-Events are persisted in the logical order in which they were received.
-
 ### Horizon ###
 
 A position in a stream from which events will be read.
@@ -104,6 +107,12 @@ Can be one of:
 - _beginning_: index 0 of the stream
 - _index_ n: start at index _n_
 - _newest_: the last event recorded
+
+### Constraints ###
+
+Events must maintain a partial order within a stream.
+
+Events are persisted in the logical order in which they were received.
 
 ### Behaviours ###
 
